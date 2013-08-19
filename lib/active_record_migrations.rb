@@ -1,7 +1,7 @@
 require "active_record_migrations/version"
 require 'active_record'
 require 'active_record/tasks/database_tasks'
-require 'active_record/railtie'
+require 'rails'
 require 'rails/application'
 require_relative 'active_record_migrations/configurations'
 
