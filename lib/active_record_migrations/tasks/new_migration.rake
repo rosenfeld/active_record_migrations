@@ -3,15 +3,11 @@ require 'active_record'
 require 'active_record/tasks/database_tasks'
 require 'active_record_migrations/configurations'
 
-Rake::Task['db:load_config'].clear
-
 task environment: 'db:load_config' do
   ActiveRecord::Base.establish_connection ActiveRecord::Tasks::DatabaseTasks.current_config
 end
 
 namespace :db do
-  task(:load_config){} # db tasks depend on load_config
-
   desc "Creates a new migration file with the specified name"
   task :new_migration, :name, :options do |t, args|
     name = args[:name] || ENV['name']
