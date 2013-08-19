@@ -23,6 +23,7 @@ Create a Rakefile:
 By default, your database configurations will be read from `db/config.yml` and your migration files
 will be created under `db/migrate`. If you want to keep with the defaults, create your `db/config.yml`:
 
+```yaml
     development:
       adapter: postgresql
       database: my_db
@@ -36,6 +37,7 @@ will be created under `db/migrate`. If you want to keep with the defaults, creat
       database: db/test.sqlite3
       pool: 5
       timeout: 5000
+```
 
 If you prefer to specify your settings in plain Ruby, add this to your Rakefile:
 
