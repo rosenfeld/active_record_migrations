@@ -39,18 +39,18 @@ will be created under `db/migrate`. If you want to keep with the defaults, creat
 
 If you prefer to specify your settings in plain Ruby, add this to your Rakefile:
 
-    ```ruby
-    ActiveRecordMigrations.configure do |c|
-      c.database_configuration = {
-        'development' => {'adapter' => 'sqlite3', 'database' => 'db/custom.sqlite3'},
-      }
-      # Other settings:
-      c.schema_format = :sql # default is :ruby
-      # c.yaml_config = 'db/config.yml'
-      # c.environment = ENV['db']
-      # c.db_dir = 'db'
-    end
-    ```
+```ruby
+ActiveRecordMigrations.configure do |c|
+  c.database_configuration = {
+    'development' => {'adapter' => 'sqlite3', 'database' => 'db/custom.sqlite3'},
+  }
+  # Other settings:
+  c.schema_format = :sql # default is :ruby
+  # c.yaml_config = 'db/config.yml'
+  # c.environment = ENV['db']
+  # c.db_dir = 'db'
+end
+```
 
 Take a look at the [Migrations Guide](http://guides.rubyonrails.org/migrations.html) for more details.
 
