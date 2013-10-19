@@ -2,6 +2,7 @@ require 'rails/generators'
 require 'active_record'
 require 'active_record/tasks/database_tasks'
 require 'active_record_migrations/configurations'
+require 'active_record_migrations/generators/migration'
 
 task environment: 'db:load_config' do
   ActiveRecord::Base.establish_connection ActiveRecord::Tasks::DatabaseTasks.current_config
@@ -25,7 +26,9 @@ namespace :db do
     end
     params = [name]
     params.concat options.split(' ') if options
-    Rails::Generators.invoke "active_record:migration", params, behavior: :invoke, destination_root: Rails.root
+    #Rails::Generators.invoke "active_record:migration", params,
+    Rails::Generators.invoke "active_record_migrations:migration", params,
+      behavior: :invoke, destination_root: Rails.root
   end
 end
 

@@ -52,7 +52,7 @@ ActiveRecordMigrations.configure do |c|
   # c.yaml_config = 'db/config.yml'
   # c.environment = ENV['db']
   # c.db_dir = 'db'
-  # c.migrations_paths = ['db/migrate']
+  # c.migrations_paths = ['db/migrate'] # the first entry will be used by the generator
 end
 ```
 
