@@ -27,6 +27,7 @@ module ActiveRecordMigrations
     DatabaseTasks.current_config = configurations.database_configuration[configurations.environment]
     DatabaseTasks.db_dir = configurations.db_dir
     DatabaseTasks.migrations_paths = configurations.migrations_paths
+    DatabaseTasks.root = Rails.root
   end
 
   private

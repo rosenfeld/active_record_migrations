@@ -69,6 +69,11 @@ You can specify the environment by setting the `db` environment variable:
 
     rake db:migrate db=production
 
+## Versioning
+
+The version follows ActiveRecord versions plus a patch version from our own. For instance, if
+AR version is 4.0.1, this gem will be versioned 4.0.1.x with x starting in 0.
+
 ## Contributing
 
 1. Fork it
