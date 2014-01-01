@@ -1,5 +1,6 @@
 require 'singleton'
 require 'yaml'
+require 'erb'
 
 module ActiveRecordMigrations
   class Configurations
@@ -19,7 +20,7 @@ module ActiveRecordMigrations
     alias configure instance_eval
 
     def database_configuration
-      @database_configuration ||= YAML.load(File.read @yaml_config)
+      @database_configuration ||= YAML.load(ERB.new(File.read @yaml_config).result)
     end
   end
 end
