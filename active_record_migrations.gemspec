@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   # So it's better to fix on an specific version of AR and check if the override of
   # ActiveRecord::Generators::MigrationGenerator#create_migration_file is correct
   # before upgrading AR dependency. See ARM::Generators::MigrationGenerator impl.
-  spec.add_dependency "railties", "4.1.0.beta1"
-  spec.add_dependency "activerecord", "4.1.0.beta1"
+  spec.add_dependency "railties", "4.1.0"
+  spec.add_dependency "activerecord", "4.1.0"
 end
 
