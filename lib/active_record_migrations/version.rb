@@ -1,3 +1,3 @@
 module ActiveRecordMigrations
-  VERSION = "4.1.2.1"
+  VERSION = "4.1.5.1"
 end
