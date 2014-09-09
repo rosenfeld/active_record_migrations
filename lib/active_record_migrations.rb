@@ -3,7 +3,7 @@ require 'active_record'
 require 'active_record/tasks/database_tasks'
 require 'rails'
 require 'rails/application'
-require_relative 'active_record_migrations/configurations'
+require 'active_record_migrations/configurations'
 
 module ActiveRecordMigrations
   include ActiveRecord::Tasks
