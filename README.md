@@ -74,6 +74,16 @@ You can specify the environment by setting the `db` environment variable:
 The version follows ActiveRecord versions plus a patch version from our own. For instance, if
 AR version is 4.0.1, this gem will be versioned 4.0.1.x with x starting in 0.
 
+## I can't find a release for the AR version we rely on
+
+We have to use pessimistic versioning because we rely on internal details of AR migrations in
+order to override the migrations path. So far the internal implementation since 4.0.0.0 hasn't
+changed, so if you're interested on another version with optimistic versioning dependency in
+order to have more flexibility you should check out the [optimistic](../../tree/optimistic) branch.
+
+I've already tried to merge the required changes to AR itself a few times but after having my
+pull requests ignored a few times without feedback I gave up.
+
 ## Contributing
 
 1. Fork it
@@ -81,8 +91,3 @@ AR version is 4.0.1, this gem will be versioned 4.0.1.x with x starting in 0.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rosenfeld/active_record_migrations/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
