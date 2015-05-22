@@ -2,11 +2,19 @@
 
 Allows you to use ActiveRecord migrations in non-Rails projects.
 
+This branch is for the _optimistic_ version, assuming the internals of AR migrations we rely on
+won't change until the next major version. However, we can't really promiss the related AR
+migrations code won't change in minor or patch versions of AR. That's why we can't release this
+branch as a final version.
+
+But at least you should be able to try it with basically any AR version in case you have to deal
+with conflicts.
+
 ## Installation
 
 Add this line to your application's Gemfile (run `bundle init` if you don't have one):
 
-    gem 'active_record_migrations'
+    gem 'active_record_migrations', '4.0.0.0.pre.optimistic'
     gem 'sqlite3' # or 'pg', 'mysql2', ...
 
 And then execute:
@@ -71,8 +79,10 @@ You can specify the environment by setting the `db` environment variable:
 
 ## Versioning
 
-The version follows ActiveRecord versions plus a patch version from our own. For instance, if
-AR version is 4.0.1, this gem will be versioned 4.0.1.x with x starting in 0.
+For final releases, the version follows ActiveRecord versions plus a patch version from our own.
+For instance, if AR version is 4.0.1, this gem will be versioned 4.0.1.x with x starting in 0.
+
+This branch however won't use pessimistic locking so that you have some flexibility if you need.
 
 ## Contributing
 
@@ -81,8 +91,3 @@ AR version is 4.0.1, this gem will be versioned 4.0.1.x with x starting in 0.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rosenfeld/active_record_migrations/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
