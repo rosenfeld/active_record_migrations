@@ -6,7 +6,8 @@ module ActiveRecordMigrations
   class Configurations
     include Singleton
 
-    attr_accessor :yaml_config, :database_configuration, :environment, :db_dir, :migrations_paths, :schema_format, :seed_loader
+    attr_accessor :yaml_config, :database_configuration, :environment, :db_dir,
+                  :migrations_paths, :schema_format, :seed_loader
 
     def initialize
       @yaml_config = 'db/config.yml'
@@ -20,8 +21,9 @@ module ActiveRecordMigrations
     alias configure instance_eval
 
     def database_configuration
-      @database_configuration ||= YAML.load(ERB.new(File.read @yaml_config).result)
+      @database_configuration ||= YAML.load(
+        ERB.new(File.read @yaml_config).result
+      )
     end
   end
 end
-

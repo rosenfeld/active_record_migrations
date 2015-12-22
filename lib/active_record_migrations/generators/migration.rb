@@ -15,4 +15,3 @@ module ActiveRecordMigrations
     end
   end
 end
-
