@@ -40,7 +40,7 @@ will be created under `db/migrate`. If you want to keep with the defaults, creat
 ```
 
 If you prefer to specify your settings in plain Ruby, add this to your Rakefile,
-before calling `ActiveRecordMigrations.load_taks`:
+before calling `ActiveRecordMigrations.load_tasks`:
 
 ```ruby
 ActiveRecordMigrations.configure do |c|
