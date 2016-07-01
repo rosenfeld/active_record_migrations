@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   # The "optimistic" versions allow more flexibility to support other AR versions but
   # on the other side we can't really guarantee that it will actually work since it depends
   # on internal implementation of AR migrations that could change any time.
-  spec.add_dependency "railties", "~> 4.0"
-  spec.add_dependency "activerecord", "~> 4.0"
+  spec.add_dependency "railties", ">= 4.0.0", "< 6.0"
+  spec.add_dependency "activerecord", ">= 4.0.0", "< 6.0"
 end
 
