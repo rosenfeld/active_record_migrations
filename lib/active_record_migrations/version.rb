@@ -1,3 +1,3 @@
 module ActiveRecordMigrations
-  VERSION = "5.0.0.0-optimistic"
+  VERSION = "5.0.0.1-optimistic"
 end

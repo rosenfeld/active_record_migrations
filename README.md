@@ -14,7 +14,7 @@ with conflicts.
 
 Add this line to your application's Gemfile (run `bundle init` if you don't have one):
 
-    gem 'active_record_migrations', '5.0.0.0.pre.optimistic'
+    gem 'active_record_migrations', '5.0.0.1.pre.optimistic'
     gem 'sqlite3' # or 'pg', 'mysql2', ...
 
 And then execute:
