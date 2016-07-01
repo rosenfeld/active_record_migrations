@@ -5,6 +5,10 @@ require 'rails'
 require 'rails/application'
 require 'active_record_migrations/configurations'
 
+# those requires are missing from AR but are required:
+require 'zlib'
+require 'digest'
+
 module ActiveRecordMigrations
   include ActiveRecord::Tasks
 
