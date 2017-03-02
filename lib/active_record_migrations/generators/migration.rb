@@ -6,11 +6,8 @@ module ActiveRecordMigrations
     class MigrationGenerator < ::ActiveRecord::Generators::MigrationGenerator
       source_root ::ActiveRecord::Generators::MigrationGenerator.source_root
 
-      def create_migration_file
-        set_local_assigns!
-        validate_file_name!
-        dir = ::ActiveRecord::Tasks::DatabaseTasks.migrations_paths.first
-        migration_template @migration_template, "#{dir}/#{file_name}.rb"
+      def db_migrate_path
+        ::ActiveRecord::Tasks::DatabaseTasks.migrations_paths.first
       end
     end
   end

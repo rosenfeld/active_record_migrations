@@ -71,18 +71,20 @@ You can specify the environment by setting the `db` environment variable:
 
 ## Versioning
 
-The version follows ActiveRecord versions plus a patch version from our own. For instance, if
-AR version is 4.0.1, this gem will be versioned 4.0.1.x with x starting in 0.
+From ActiveRecord 5.0.2 and above you should use v5.0.2.1 or above. That version isn't locked to
+ActiveRecord 5.0.2 as in previous versions, which means it should work fine with any ActiveRecord
+version starting with 5.0.2.
+
+Up to ActiveRecord 5.0.1 we relied on overriding a method in the migration generator to support
+custom paths for the migrations, so the version used to follow ActiveRecord versions plus a
+patch version from our own. For instance, if AR version is 4.0.1, this gem would be versioned
+4.0.1.x with x starting in 0.
 
 ## I can't find a release for the AR version we rely on
 
-We have to use pessimistic versioning because we rely on internal details of AR migrations in
-order to override the migrations path. So far the internal implementation since 4.0.0.0 hasn't
-changed, so if you're interested on another version with optimistic versioning dependency in
-order to have more flexibility you should check out the [optimistic](../../tree/optimistic) branch.
-
-I've already tried to merge the required changes to AR itself a few times but after having my
-pull requests ignored a few times without feedback I gave up.
+We had to use pessimistic versioning up to 5.0.1.1 because we relied on internal details of AR
+migrations in order to override the migrations path. The [optimistic](../../tree/optimistic)
+branch should work with any previous version since ActiveRecord 4.0.0.
 
 ## Contributing
 
