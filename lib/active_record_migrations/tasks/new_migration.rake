@@ -28,7 +28,7 @@ namespace :db do
     params.concat options.split(' ') if options
     #Rails::Generators.invoke "active_record:migration", params,
     Rails::Generators.invoke "active_record_migrations:migration", params,
-      behavior: :invoke, destination_root: Rails.root
+      behavior: :invoke, destination_root: File.expand_path("..", __FILE__)
   end
 end
 
