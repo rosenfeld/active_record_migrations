@@ -20,7 +20,7 @@ module ActiveRecordMigrations
   def self.load_tasks
     create_rails_app_if_not_exists
 
-    load "active_record/railties/databases.rake"
+    load 'active_record/railties/databases.rake'
     load 'active_record_migrations/tasks/new_migration.rake'
 
     ActiveRecord::Base.schema_format = configurations.schema_format

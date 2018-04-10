@@ -4,7 +4,11 @@ require 'active_record/tasks/database_tasks'
 require 'active_record_migrations/configurations'
 require 'active_record_migrations/generators/migration'
 
-task environment: 'db:load_config' do
+deps = []
+if Gem::Version.new(ActiveRecord::VERSION::STRING) < Gem::Version.new('5.2.0')
+  deps << 'db:load_config'
+end
+task environment: deps do
   ActiveRecord::Base.establish_connection ActiveRecord::Tasks::DatabaseTasks.current_config
 end
 
@@ -16,7 +20,8 @@ namespace :db do
 
     unless name
       generator = Rails::Generators.find_by_namespace "migration"
-      desc = generator.desc.gsub(/`rails (?:g|generate) migration (\w+)`/, '`rake "db:new_migration[\\1]"`' ).
+      desc = generator.desc.gsub(/`rails (?:g|generate) migration (\w+)`/,
+                                 '`rake "db:new_migration[\\1]"`' ).
         gsub(/`rails (?:g|generate) migration (\w+) (.*)`/, '`rake "db:new_migration[\\1, \\2]"`' )
       puts [
         %Q{Usage: rake "#{t.name}[AddFieldToForm[, field[:type][:index]] field[:type][:index]]"},
