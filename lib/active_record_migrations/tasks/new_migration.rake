@@ -9,7 +9,7 @@ if Gem::Version.new(ActiveRecord::VERSION::STRING) < Gem::Version.new('5.2.0')
   deps << 'db:load_config'
 end
 task environment: deps do
-  ActiveRecord::Base.establish_connection ActiveRecord::Tasks::DatabaseTasks.current_config
+  ActiveRecord::Base.establish_connection ActiveRecord::Tasks::DatabaseTasks.env.to_sym
 end
 
 namespace :db do
@@ -31,6 +31,8 @@ namespace :db do
     end
     params = [name]
     params.concat options.split(' ') if options
+    # Rails assumes configure! has been called, which initializes @after_generate_callbacks
+    Rails::Generators.after_generate_callbacks # ensure the empty array is created
     #Rails::Generators.invoke "active_record:migration", params,
     Rails::Generators.invoke "active_record_migrations:migration", params,
       behavior: :invoke, destination_root: Rails.root

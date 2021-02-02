@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler"
   spec.add_dependency "rake"
-  spec.add_dependency "railties", ">= 5.0.2"
-  spec.add_dependency "activerecord", ">= 5.0.2"
+  spec.add_dependency "railties", ">= 6.1.1"
+  spec.add_dependency "activerecord", ">= 6.1.1"
 end
 
