@@ -35,7 +35,7 @@ namespace :db do
     Rails::Generators.after_generate_callbacks # ensure the empty array is created
     #Rails::Generators.invoke "active_record:migration", params,
     Rails::Generators.invoke "active_record_migrations:migration", params,
-      behavior: :invoke, destination_root: Rails.root
+      behavior: :invoke, destination_root: Pathname.pwd
   end
 end
 
