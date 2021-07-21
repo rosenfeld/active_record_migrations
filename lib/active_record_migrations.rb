@@ -25,6 +25,7 @@ module ActiveRecordMigrations
 
     ActiveRecord::Base.schema_format = configurations.schema_format
     DatabaseTasks.env = configurations.environment
+    Rails.env = DatabaseTasks.env
     DatabaseTasks.seed_loader = configurations.seed_loader
     ActiveRecord::Base.configurations = DatabaseTasks.database_configuration =
       configurations.database_configuration
