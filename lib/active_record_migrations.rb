@@ -23,7 +23,11 @@ module ActiveRecordMigrations
     load 'active_record/railties/databases.rake'
     load 'active_record_migrations/tasks/new_migration.rake'
 
-    ActiveRecord::Base.schema_format = configurations.schema_format
+    if ActiveRecord.respond_to? :schema_format=
+      ActiveRecord.schema_format = configurations.schema_format
+    else
+      ActiveRecord::Base.schema_format = configurations.schema_format
+    end
     DatabaseTasks.env = configurations.environment
     Rails.env = DatabaseTasks.env
     DatabaseTasks.seed_loader = configurations.seed_loader
