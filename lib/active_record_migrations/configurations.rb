@@ -20,7 +20,14 @@ module ActiveRecordMigrations
     alias configure instance_eval
 
     def database_configuration
-      @database_configuration ||= YAML.load(ERB.new(File.read @yaml_config).result)
+      @database_configuration ||=
+        begin
+          content = ERB.new(File.read @yaml_config).result
+
+          YAML.load(content, aliases: true)
+        rescue ArgumentError
+          YAML.load(content)
+        end
     end
   end
 end
